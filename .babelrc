@@ -1,0 +1,14 @@
+{
+    // Resolving issue https://github.com/system-ui/theme-ui/issues/1596 with not working sx element
+    "presets": [
+        [
+          "babel-preset-gatsby",
+          {
+            "reactRuntime": "automatic",
+            "targets": {
+              "browsers": [">0.25%", "not dead"]
+            }
+          }
+        ]
+    ]
+}

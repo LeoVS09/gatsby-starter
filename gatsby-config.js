@@ -7,6 +7,7 @@ module.exports = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
+    // https://github.com/LekoArts/gatsby-themes/tree/main/themes/gatsby-theme-minimal-blog#additional-configuration
     siteTitle: `Eonian Blog`,
     siteTitleAlt: `Eonian Blog`,
     siteHeadline: `Eonian Blog - News for cryptofans`,
@@ -60,6 +61,7 @@ module.exports = {
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
+      // https://github.com/LekoArts/gatsby-themes/tree/main/themes/gatsby-theme-minimal-blog#theme-options
       options: {
         // postsPath: `${__dirname}/content/post`,
         navigation: [
@@ -175,6 +177,7 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
     `gatsby-plugin-gatsby-cloud`,
+    `gatsby-plugin-theme-ui`,
     shouldAnalyseBundle && {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
