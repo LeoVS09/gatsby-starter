@@ -29,15 +29,18 @@ type BlogListItemProps = {
 
 const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => {
   const banner = post.banner?.childImageSharp?.resize?.src
-  console.log('banner', post.banner?.childImageSharp, banner)
+
   return (
     <Box mb={4}>
-      <div>
-        {banner && <Image src={banner} /> }
-      </div>
-      <Link to={post.slug} sx={(t) => ({ ...t.styles?.a, fontSize: [1, 2, 3], color: `text` })}>
+      <Link to={post.slug} sx={(t) => ({ ...t.styles?.a, fontSize: [3, 4], color: `text` })}>
         {post.title}
       </Link>
+
+      { banner && <div sx={{ paddingTop: '1rem'}}>
+          <Image src={banner} /> 
+        </div>
+      }
+ 
       <p sx={{ color: `secondary`, mt: 1, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
         <time>{post.date}</time>
         {post.tags && showTags && (
