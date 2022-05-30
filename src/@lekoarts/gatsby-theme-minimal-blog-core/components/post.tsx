@@ -37,46 +37,50 @@ const px = [`32px`, `16px`, `8px`, `4px`]
 const shadow = px.map((v) => `rgba(0, 0, 0, 0.15) 0px ${v} ${v} 0px`)
 
 
-const RichPost = ({ data: { post } }: PostProps) => (
-  <Layout>
-      <Seo
-        title={post.title}
-        description={post.description || post.excerpt}
-        image={post.banner?.childImageSharp?.resize?.src}
-        pathname={post.slug}
-        canonicalUrl={post.canonicalUrl}
-      />
+const RichPost = ({ data: { post } }: PostProps) => {
+  const banner = post.banner?.childImageSharp?.resize?.src
 
-      <Heading as="h1" variant="styles.h1">
-        {post.title}
-      </Heading>
+  return (
+    <Layout>
+        <Seo
+          title={post.title}
+          description={post.description || post.excerpt}
+          image={post.banner?.childImageSharp?.resize?.src}
+          pathname={post.slug}
+          canonicalUrl={post.canonicalUrl}
+        />
 
-      <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
-          <time>{post.date}</time>
-          {post.tags && (
-              <React.Fragment>
-              {` — `}
-              <ItemTags tags={post.tags} />
-              </React.Fragment>
-          )}
-          {post.timeToRead && ` — `}
-          {post.timeToRead && <span>{post.timeToRead} min read</span>}
-      </p>
-      
-      { post.banner && <Image src={post.banner?.childImageSharp?.resize?.src} /> }
-      
-      <section
-        sx={{
-            my: 5,
-            ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
-            variant: `layout.content`,
-        }}
-      >
-          <MDXRenderer>{post.body}</MDXRenderer>
-      </section>
+        <Heading as="h1" variant="styles.h1">
+          {post.title}
+        </Heading>
 
-      <PostFooter post={post} />
-  </Layout>
-)
+        <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
+            <time>{post.date}</time>
+            {post.tags && (
+                <React.Fragment>
+                {` — `}
+                <ItemTags tags={post.tags} />
+                </React.Fragment>
+            )}
+            {post.timeToRead && ` — `}
+            {post.timeToRead && <span>{post.timeToRead} min read</span>}
+        </p>
+        
+        { banner && <Image src={banner} /> }
+        
+        <section
+          sx={{
+              my: 5,
+              ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
+              variant: `layout.content`,
+          }}
+        >
+            <MDXRenderer>{post.body}</MDXRenderer>
+        </section>
+
+        <PostFooter post={post} />
+    </Layout>
+  )
+}
 
 export default RichPost
