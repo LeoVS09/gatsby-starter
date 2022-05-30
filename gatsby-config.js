@@ -61,6 +61,7 @@ module.exports = {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
+        // postsPath: `${__dirname}/content/post`,
         navigation: [
           {
             title: `Blog`,
