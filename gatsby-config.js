@@ -125,6 +125,38 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-VLR600NQTM", // Google Analytics / GA
+          // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
+          // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+        ],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        gtagConfig: {
+          // If you need to use Google Optimize for A/B testing, you can add this optional Optimize container id to allow Google Optimize to load the correct test parameters for your site.
+          // optimize_id: "OPT_CONTAINER_ID",
+          // Some countries (such as Germany) require you to use the _anonymizeIP function for Google Site Tag. Otherwise you are not allowed to use it.
+          anonymize_ip: true, // need for GDPR
+          // cookie_expires: 0,
+        },
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          // head: false,
+          // If you enable this optional option, Google Global Site Tag will not be loaded at all for visitors that have “Do Not Track” enabled. While using Google Global Site Tag does not necessarily constitute Tracking, you might still want to do this to cater to more privacy oriented users.
+          // respectDNT: true,
+          // Avoids sending pageview hits from custom paths
+          // If you need to exclude any path from the tracking system, you can add it (one or more) to this optional array as glob expressions.
+          // exclude: ["/preview/**", "/do-not-track/me/too/"],
+          // Defaults to https://www.googletagmanager.com
+          // origin: "blog.eonian.finance",
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
