@@ -11,7 +11,7 @@ module.exports = {
     siteTitle: `Eonian Blog`,
     siteTitleAlt: `Eonian Blog`,
     siteHeadline: `Eonian Blog - News for cryptofans`,
-    siteUrl: `https://minimal-blog.lekoarts.de`,
+    siteUrl: `https://blog.eonian.finance`,
     siteDescription: `Blog for Eonian DAO with project news and all about crypto world.`,
     siteLanguage: `en`,
     siteImage: `/banner.jpg`,
