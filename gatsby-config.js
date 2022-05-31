@@ -66,7 +66,7 @@ module.exports = {
         // postsPath: `${__dirname}/content/post`,
         navigation: [
           {
-            title: `Blog`,
+            title: `All Posts`,
             slug: `/blog`,
           },
         ],

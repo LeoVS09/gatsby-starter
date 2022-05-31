@@ -41,9 +41,11 @@ const Homepage = ({ posts }: PostsProps) => {
       <section sx={{ mb: [4, 5, 6], p: { fontSize: [1, 2, 3], mt: 2 }, variant: `section_hero` }}>
         <Hero />
       </section>
-      <Title text="Latest Posts">
-        <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>Read all posts</Link>
-      </Title>
+
+      <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2], textAlign: 'right' }}>
+        Latest
+      </p>
+
       <Listing posts={posts} showTags={false} />
       <List>
         <Bottom />

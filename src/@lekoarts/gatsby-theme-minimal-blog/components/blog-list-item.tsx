@@ -32,15 +32,23 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => {
   const goToPost = React.useCallback(() => navigate(post.slug), [post.slug])
 
   return (
-    <Box mb={4} onClick={goToPost} sx={{cursor: 'pointer'}} >
-      { banner && <div sx={{ paddingTop: '1rem'}}>
-          <Image src={banner} /> 
-        </div>
-      }
+    <Box mb={4} onClick={goToPost} sx={{
+        cursor: 'pointer', 
+        background: banner && `linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.9)), url(${banner})`,
+        height: '25rem',
+        display: 'flex',
+        flexDirection: 'column',
+        paddingLeft: '1rem',
+        paddingBottom: '1rem',
+        'background-size': 'cover',
+        'background-origin': 'border-box',
+        'background-position': '50% 50% !important',
+        border: '1px solid rgba(0,0,0,0.15)'
+      }} >
 
-      <Heading as='h3' sx={(t) => ({ ...t.styles?.h3, fontSize: [3, 4], color: `text`, marginTop: '0.5rem' })}>{post.title}</Heading>
+      <Heading as='h3' sx={(t) => ({ ...t.styles?.h3, fontSize: [3, 4], color: `rgba(255, 255, 255, 1)`, marginTop: 'auto' })}>{post.title}</Heading>
  
-      <p sx={{ color: `secondary`, mt: 1, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
+      <p sx={{ color: `rgba(255, 255, 255, 1)`, mt: 1, a: { color: `rgba(255, 255, 255, 1)` }, fontSize: [1, 1, 2] }}>
         <time>{post.date}</time>
         {post.tags && showTags && (
           <React.Fragment>
@@ -50,7 +58,7 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => {
         )}
       </p>
 
-      <Divider />
+
     </Box>
   )
 }
