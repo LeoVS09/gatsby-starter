@@ -56,17 +56,15 @@ const RichPost = ({ data: { post } }: PostProps) => {
 
         <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
             <time>{post.date}</time>
-            {post.tags && (
-                <React.Fragment>
-                {` — `}
-                <ItemTags tags={post.tags} />
-                </React.Fragment>
-            )}
             {post.timeToRead && ` — `}
             {post.timeToRead && <span>{post.timeToRead} min read</span>}
         </p>
         
         { banner && <Image src={banner} /> }
+
+        <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2], textAlign: 'right' }}>
+            {post.tags && <ItemTags tags={post.tags} />}
+        </p>
         
         <section
           sx={{
