@@ -37,7 +37,9 @@ const px = [`32px`, `16px`, `8px`, `4px`]
 const shadow = px.map((v) => `rgba(0, 0, 0, 0.15) 0px ${v} ${v} 0px`)
 
 
-const RichPost = ({ data: { post } }: PostProps) => {
+const RichPost = (props: PostProps) => {
+  console.log('props', props)
+  const { data: { post } } = props
   const banner = post.banner?.childImageSharp?.resize?.src
 
   return (

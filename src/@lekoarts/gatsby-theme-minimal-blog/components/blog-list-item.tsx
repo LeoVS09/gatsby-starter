@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Box, Image, Heading, Divider } from "theme-ui"
 import { Link, navigate } from "gatsby"
 import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags"
+import { useLocalization } from "gatsby-theme-i18n"
 
 type BlogListItemProps = {
   post: {
@@ -27,9 +28,23 @@ type BlogListItemProps = {
   showTags?: boolean
 }
 
+const buildPath = (to: string) => {
+  const { defaultLang, prefixDefault, locale, localizedPath } = useLocalization()
+
+  console.log('locale', locale)
+
+  return localizedPath({
+    defaultLang,
+    prefixDefault,
+    locale: 'ru',
+    path: to,
+  })
+}
+
 const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => {
   const banner = post.banner?.childImageSharp?.resize?.src
-  const goToPost = React.useCallback(() => navigate(post.slug), [post.slug])
+  const pathToPost = buildPath(post.slug)
+  const goToPost = React.useCallback(() => navigate(pathToPost), [pathToPost])
 
   return (
     <Box mb={4} onClick={goToPost} sx={{
