@@ -62,7 +62,7 @@ const RichPost = ({ data: { post } }: PostProps) => {
         
         { banner && <Image src={banner} /> }
 
-        <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2], textAlign: 'right' }}>
+        <p sx={{ color: `secondary`, mt: 1, a: { color: `secondary` }, fontSize: ['0.8rem', '0.9rem', '1.1rem'], textAlign: 'right' }}>
             {post.tags && <ItemTags tags={post.tags} />}
         </p>
         
